@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-resource.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" ng-click="a = true">
+          <a class="nav-link" href="#jeden">Jeden</a>
+        </li>
+        <li class="nav-item" ng-if="jedenClick">
+          <a class="nav-link" href="#">Dwa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#trzy">Trzy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#cztery">Cztery</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div id="mydiv"></div>
+
+  <div class="container">
+    <div class="jumbotron" ng-controller="ToDoController2 as vm">
+      <p>Zrealizowane: {{vm.remainig()}} z {{vm.todos.length}}</p>
+    </div>
+    <main ng-controller="ToDoController2 as vm">
+      <p>Zrealizowane: {{vm.remainig()}} z {{vm.todos.length}}</p>
+      <ul class="list-group">
+       
+        <li ng-class="{'list-group-item list-group-item-success': todo.done ==true,'list-group-item': todo.done==false,'list-group-item list-group-item-danger': todo.priority==true && todo.done==false}" ng-repeat="todo in vm.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+          
+          
+          <button type="button" class="btn btn-outline-danger btn-sm" ng-click="vm.remove($index)">Usuń</button>
+          <button type="button" class="btn btn-outline-warning btn-sm" ng-click="vm.modTodo($index)">Modyfikuj</button>
+          
+      <input class="form-control" ng-model="vm.nextTodo">
+        </li>
+      </script>
+      </ul>
+
+      <div class="form-group">
+        <input class="form-control" ng-model="vm.newTodo">
+      </div>
+
+      <button type="button" class="btn btn-success" ng-click="vm.addTodo()">Dodaj</button>
+      <p>Okno do wpisania tekstu do modyfikacji</p>
+    </main>
+  </div>
+
+
+</body>
+
+</html>
