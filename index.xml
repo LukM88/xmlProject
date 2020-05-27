@@ -1,0 +1,25 @@
+<?xml-stylesheet href="ss.css" type="text/css"?>
+<!DOCTYPE ZAJĘCIA[
+<!ELEMENT ZAJĘCIA (PRZEDMIOT+)>
+<!ELEMENT PRZEDMIOT (nazwa,rodzaj,tydzień)>
+<!ELEMENT nazwa (#PCDATA)>
+<!ELEMENT rodzaj (#PCDATA)>
+<!ELEMENT tydzień (#PCDATA)>
+<!ATTLIST PRZEDMIOT nr CDATA #REQUIRED>
+]>
+<ZAJĘCIA>
+    <PRZEDMIOT nr="1">
+        <nazwa>Metajęzuki</nazwa>
+        <rodzaj>ćw</rodzaj>
+        <tydzień>P</tydzień>
+    </PRZEDMIOT>
+    <PRZEDMIOT nr="2">
+    <nazwa>Projektowanie Interfejsów</nazwa>
+        <rodzaj>ćw</rodzaj>
+        <tydzień>P</tydzień></PRZEDMIOT>
+    <PRZEDMIOT nr="3">
+        <nazwa>Zasotsowanie programowania komponentowego</nazwa>
+        <rodzaj>proj</rodzaj>
+        <tydzień>N</tydzień></PRZEDMIOT>
+    </PRZEDMIOT>
+</ZAJĘCIA>
