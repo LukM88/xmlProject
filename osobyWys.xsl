@@ -24,7 +24,7 @@
           <a class="nav-link" href="#jeden">Jeden</a>
         </li>
         <li class="nav-item" ng-if="jedenClick">
-          <a class="nav-link" href="#">Dwa</a>
+          <a class="nav-link" href="#dodawanie">Dodawanie wykładowców</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#trzy">Trzy</a>
@@ -41,11 +41,38 @@
       </form>
     </div>
   </nav>
-  <div id="mydiv" margin-left="50px" bacgrund="black">
+  <div class="container" id="mydiv"  bacgrund="black">
   
   </div>
-  <div class="container">
+  
+  <div class="container" id="dodawanie">
+    <form> Formularz dodawania
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Imie</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Sauron"/>
+    <br/>
+    <label for="exampleFormControlInput1">Nazwisko</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Brando"/>
+    <br/>
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+    <br/>
+    <label for="exampleFormControlSelect1">Tytuł</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>inż</option>
+      <option>mgr.</option>
+      <option>dr.</option>
+      <option>dr.hab</option>
+      <option>prof.</option>
+    </select>
+    <br/>
+    <label for="exampleFormControlTextarea1">Katedra</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <br/>
+    <input type="button"  value="Dodaj wykładowce" onClick="addTeacher()"/>
     
+  </div>
+</form>
   </div>
    <script>
               function searchByLastName(){
@@ -61,7 +88,7 @@
               <xsl:for-each select="osoby/osoba">
               name2="<xsl:value-of select="nazwisko"/>";
               if(include(name2,name)){
-              var data = "<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />";
+              var data = "<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
 
               testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" ng-click="vm.remove($index)">Usuń</button>'+'</li>';
               
@@ -73,7 +100,7 @@
               }
 
               function include(a,b){
-              if(b.length>a.length || b.length==0){
+              if(b.length>a.length ){
                 return false;
               }else if(a.indexOf(b)==-1){
                 return false
@@ -106,8 +133,14 @@
               document.getElementById("mydiv").appendChild(newDiv);
               }
               
+              function addTeacher(){
+              
+              //console.log(xmlDoc);
+              }
              
               </script>
+              
+              
                 </body>
                
                 </html>
