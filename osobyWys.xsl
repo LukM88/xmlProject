@@ -46,7 +46,7 @@
   </div>
   
   <div class="container" id="dodawanie">
-    <form> Formularz dodawania
+    <form action="/addTeacher.php" method="get"> Formularz dodawania
     <div class="form-group">
     <label for="exampleFormControlInput1">Imie</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Sauron"/>
@@ -69,7 +69,7 @@
     <label for="exampleFormControlTextarea1">Katedra</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     <br/>
-    <input type="button"  value="Dodaj wykładowce" onClick="addTeacher()"/>
+    <input type="submit"  value="Dodaj wykładowce" />
     
   </div>
 </form>
@@ -115,9 +115,9 @@
               var newDiv = document.createElement("div")
               console.log(document.getElementById("mydiv").children);
               if(document.getElementById("mydiv").children.length!=0){
-                 console.log("HEJ")
                 document.getElementById("mydiv").children[0].remove()
               }
+
               var testhtml= '<ul class="list-group" id="lista"> Lista';
               <xsl:for-each select="osoby/osoba">
               name2="<xsl:value-of select="imie"/>";
@@ -133,10 +133,8 @@
               document.getElementById("mydiv").appendChild(newDiv);
               }
               
-              function addTeacher(){
+
               
-              //console.log(xmlDoc);
-              }
              
               </script>
               
