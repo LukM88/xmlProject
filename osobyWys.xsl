@@ -20,20 +20,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent" name="navD">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active" ng-click="a = true">
-          <a class="nav-link" href="#jeden">Jeden</a>
-        </li>
         <li class="nav-item" ng-if="jedenClick">
           <a class="nav-link" href="#dodawanie">Dodawanie wykładowców</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#trzy">Trzy</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#cztery">Cztery</a>
-        </li>
       </ul>
+
       <form class="form-inline my-2 my-lg-0" name="navForm">
+        <button type="button" class="btn btn-secondary" onClick="setZero()">A-Z</button>
+        <button type="button" class="btn btn-secondary" onClick="setOne()">Z-A</button>
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search"/>
         <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByLastName()" value="Search by lastname" />
         <p>:</p>
@@ -46,54 +40,73 @@
   </div>
   
   <div class="container" id="dodawanie">
-    <form> Formularz dodawania
+    <form name="form" id="form" action="/meta/xmlProject/php.php" method="GET"> Formularz dodawania
     <div class="form-group">
+     <label for="exampleFormControlInput1">ID</label>
+    <input type="text" class="form-control" name="id" id="exampleFormControlInput1" />
+    <br/>
     <label for="exampleFormControlInput1">Imie</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Sauron"/>
+    <input type="text" class="form-control" name="imie" id="exampleFormControlInput1" placeholder="Sauron"/>
     <br/>
     <label for="exampleFormControlInput1">Nazwisko</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Brando"/>
+    <input type="text" name="nazwisko" class="form-control" id="exampleFormControlInput1" placeholder="Brando"/>
     <br/>
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+    <input type="email" name="mail" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
     <br/>
     <label for="exampleFormControlSelect1">Tytuł</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" name="stopien" id="exampleFormControlSelect1">
       <option>inż</option>
       <option>mgr.</option>
-      <option>dr.</option>
-      <option>dr.hab</option>
+      <option>dr</option>
+      <option>dr hab.</option>
       <option>prof.</option>
     </select>
     <br/>
     <label for="exampleFormControlTextarea1">Katedra</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="katedra" rows="3"></textarea>
     <br/>
-    <input type="button"  value="Dodaj wykładowce" onClick="addTeacher()"/>
+    <label for="exampleFormControlTextarea2">Specjalizacja</label>
+    <textarea class="form-control" id="exampleFormControlTextarea2" name="specjalizacja" rows="3"></textarea>
+    <br/>
+    <input type="submit" name="akcja" value="Dodaj wykładowce" />
     
   </div>
 </form>
   </div>
    <script>
+              var sort = 0;
               function searchByLastName(){
               var name= document.getElementById("search").value
               var name2;
               var newDiv = document.createElement("div")
-              console.log(document.getElementById("mydiv").children);
-              if(document.getElementById("mydiv").children.length!=0){
-                 console.log("HEJ")
+             if(document.getElementById("mydiv").children.length!=0){
                 document.getElementById("mydiv").children[0].remove()
               }
               var testhtml= '<ul class="list-group" id="lista"> Lista';
+              console.log(sort);
+              if(sort==0){
               <xsl:for-each select="osoby/osoba">
+              <xsl:sort select="nazwisko"/>
               name2="<xsl:value-of select="nazwisko"/>";
               if(include(name2,name)){
-              var data = "<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
-
-              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" ng-click="vm.remove($index)">Usuń</button>'+'</li>';
-              
+              var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
+              var index = "<xsl:value-of select="@id" />"
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
               }
               </xsl:for-each>
+              }
+              else{
+                 <xsl:for-each select="osoby/osoba">
+              <xsl:sort select="nazwisko" order="descending"/>
+              name2="<xsl:value-of select="nazwisko"/>";
+              if(include(name2,name)){
+              var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
+              var index = "<xsl:value-of select="@id" />"
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
+              }
+              </xsl:for-each>
+              }
               testhtml+=  '</ul>'
               newDiv.innerHTML = testhtml
               document.getElementById("mydiv").appendChild(newDiv);
@@ -113,30 +126,115 @@
               var name= document.getElementById("search").value
               var name2;
               var newDiv = document.createElement("div")
-              console.log(document.getElementById("mydiv").children);
               if(document.getElementById("mydiv").children.length!=0){
-                 console.log("HEJ")
                 document.getElementById("mydiv").children[0].remove()
               }
               var testhtml= '<ul class="list-group" id="lista"> Lista';
+              if(sort==0){
               <xsl:for-each select="osoby/osoba">
+              <xsl:sort select="imie"/>
               name2="<xsl:value-of select="imie"/>";
               if(include(name2,name)){
-              var data = "<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />";
-
-              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" ng-click="vm.remove($index)">Usuń</button>'+'</li>';
-              
+              var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
+              var index = "<xsl:value-of select="@id" />"
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
               }
               </xsl:for-each>
+              }
+              else{
+                 <xsl:for-each select="osoby/osoba">
+              <xsl:sort select="imie" order="descending"/>
+              name2="<xsl:value-of select="imie"/>";
+              if(include(name2,name)){
+              var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
+              var index = "<xsl:value-of select="@id" />"
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
+              }
+              </xsl:for-each>
+              }
               testhtml+=  '</ul>'
               newDiv.innerHTML = testhtml
               document.getElementById("mydiv").appendChild(newDiv);
               }
-              
-              function addTeacher(){
-              
-              //console.log(xmlDoc);
+
+              function Update(id){
+              console.log(document.getElementsByName("form"))
+              <xsl:for-each select="osoby/osoba">
+              var index = "<xsl:value-of select="@id"/>"
+              var stopien = "<xsl:value-of select="stopien"/>"
+              if(index==id){
+                document.getElementsByName("form")[0][0].value=id 
+                document.getElementsByName("form")[0][0].editible=false 
+                document.getElementsByName("form")[0][1].value="<xsl:value-of select="imie"/>"
+                document.getElementsByName("form")[0][2].value="<xsl:value-of select="nazwisko"/>"
+                document.getElementsByName("form")[0][3].value="<xsl:value-of select="mail"/>"
+                switch(stopien){
+                  case "inż":
+                    document.getElementsByName("form")[0][4].selectedIndex=0
+                    break;
+                  case "mgr.":
+                    document.getElementsByName("form")[0][4].selectedIndex=1
+                  case "dr":
+                    document.getElementsByName("form")[0][4].selectedIndex=2
+                    break;
+                  case "dr hab.":
+                    document.getElementsByName("form")[0][4].selectedIndex=3
+                    break;
+                    default:
+                    document.getElementsByName("form")[0][4].selectedIndex=4
+                }
+                
+                document.getElementsByName("form")[0][5].value="<xsl:value-of select="katedra"/>" 
+                document.getElementsByName("form")[0][6].value="<xsl:value-of select="specjalizacja"/>" 
+                document.getElementsByName("form")[0][7].value="Modyfikuj" 
               }
+                </xsl:for-each>
+             
+             }
+
+             function setOne(){
+              sort=1
+              console.log(sort)
+             }
+             function setZero(){
+              sort=0
+              console.log(sort)
+             }
+             
+             function Delete(id){
+             console.log(document.getElementsByName("form"))
+              <xsl:for-each select="osoby/osoba">
+              var index = "<xsl:value-of select="@id"/>"
+              var stopien = "<xsl:value-of select="stopien"/>"
+              if(index==id){
+                document.getElementsByName("form")[0][0].value=id 
+                document.getElementsByName("form")[0][0].enable=false 
+                document.getElementsByName("form")[0][1].value="<xsl:value-of select="imie"/>"
+                document.getElementsByName("form")[0][2].value="<xsl:value-of select="nazwisko"/>"
+                document.getElementsByName("form")[0][3].value="<xsl:value-of select="mail"/>"
+                switch(stopien){
+                  case "inż":
+                    document.getElementsByName("form")[0][4].selectedIndex=0
+                    break;
+                  case "mgr.":
+                    document.getElementsByName("form")[0][4].selectedIndex=1
+                  case "dr":
+                    document.getElementsByName("form")[0][4].selectedIndex=2
+                    break;
+                  case "dr hab.":
+                    document.getElementsByName("form")[0][4].selectedIndex=3
+                    break;
+                    default:
+                    document.getElementsByName("form")[0][4].selectedIndex=4
+                }
+                
+                document.getElementsByName("form")[0][5].value="<xsl:value-of select="katedra"/>" 
+                document.getElementsByName("form")[0][6].value="<xsl:value-of select="specjalizacja"/>" 
+                document.getElementsByName("form")[0][7].value="Usuń" 
+              }
+                </xsl:for-each>
+               document.getElementsByName("form")[0][0].ariaHidden=true
+             }
              
               </script>
               

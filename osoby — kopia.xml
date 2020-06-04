@@ -1,0 +1,55 @@
+<?xml-stylesheet href="osobyWys.xsl" type="text/xsl"?>
+<!DOCTYPE osoby[
+<!ELEMENT osoby (osoba+)>
+<!ELEMENT osoba (stopien, imie, nazwisko, katedra, mail, specjalizacja)>
+<!ELEMENT stopien (#PCDATA)>
+<!ELEMENT imie (#PCDATA)>
+<!ELEMENT nazwisko (#PCDATA)>
+<!ELEMENT katedra (#PCDATA)>
+<!ELEMENT mail (#PCDATA)>
+<!ELEMENT specjalizacja (#PCDATA)>
+<!ATTLIST osoba id CDATA #REQUIRED>
+]>
+<osoby>
+    <osoba id="1">
+        <stopien>dr</stopien>
+        <imie>Robert</imie>
+        <nazwisko>Berezowski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="2">
+        <stopien>dr</stopien>
+        <imie>Marek</imie>
+        <nazwisko>Popławski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="3">
+        <stopien>dr</stopien>
+        <imie>Adam</imie>
+        <nazwisko>Słowik</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="4">
+        <stopien>dr</stopien>
+        <imie>Magdalena</imie>
+        <nazwisko>Rajewska</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="5">
+        <stopien>dr</stopien>
+        <imie>Piotr</imie>
+        <nazwisko>Ratuszniak</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    
+</osoby>

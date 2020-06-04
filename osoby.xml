@@ -51,5 +51,125 @@
         <mail>robertB@serwer.pl</mail>
         <specjalizacja>xml?</specjalizacja>
     </osoba>
+<osoba id="6">
+        <stopien>dr</stopien>
+        <imie>Robert</imie>
+        <nazwisko>Berezowski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="7">
+        <stopien>dr</stopien>
+        <imie>Marek</imie>
+        <nazwisko>Popławski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="8">
+        <stopien>dr</stopien>
+        <imie>Adam</imie>
+        <nazwisko>Słowik</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="9">
+        <stopien>dr</stopien>
+        <imie>Magdalena</imie>
+        <nazwisko>Rajewska</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="10">
+        <stopien>dr</stopien>
+        <imie>Piotr</imie>
+        <nazwisko>Ratuszniak</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+<osoba id="11">
+        <stopien>dr</stopien>
+        <imie>Robert</imie>
+        <nazwisko>Berezowski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="12">
+        <stopien>dr</stopien>
+        <imie>Marek</imie>
+        <nazwisko>Popławski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="13">
+        <stopien>dr</stopien>
+        <imie>Adam</imie>
+        <nazwisko>Słowik</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="14">
+        <stopien>dr</stopien>
+        <imie>Magdalena</imie>
+        <nazwisko>Rajewska</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="15">
+        <stopien>dr</stopien>
+        <imie>Piotr</imie>
+        <nazwisko>Ratuszniak</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+<osoba id="16">
+        <stopien>dr</stopien>
+        <imie>Robert</imie>
+        <nazwisko>Berezowski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="17">
+        <stopien>dr</stopien>
+        <imie>Marek</imie>
+        <nazwisko>Popławski</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="18">
+        <stopien>dr</stopien>
+        <imie>Adam</imie>
+        <nazwisko>Słowik</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="19">
+        <stopien>dr</stopien>
+        <imie>Magdalena</imie>
+        <nazwisko>Rajewska</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
+    <osoba id="20">
+        <stopien>dr</stopien>
+        <imie>Piotr</imie>
+        <nazwisko>Ratuszniak</nazwisko>
+        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <mail>robertB@serwer.pl</mail>
+        <specjalizacja>xml?</specjalizacja>
+    </osoba>
     
 </osoby>
