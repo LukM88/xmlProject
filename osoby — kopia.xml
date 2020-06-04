@@ -1,7 +1,8 @@
+<?xml version="1.0"?>
 <?xml-stylesheet href="osobyWys.xsl" type="text/xsl"?>
-<!DOCTYPE osoby[
-<!ELEMENT osoby (osoba+)>
-<!ELEMENT osoba (stopien, imie, nazwisko, katedra, mail, specjalizacja)>
+<!DOCTYPE osoby [
+<!ELEMENT osoby (osoba)+>
+<!ELEMENT osoba (stopien , imie , nazwisko , katedra , mail , specjalizacja)>
 <!ELEMENT stopien (#PCDATA)>
 <!ELEMENT imie (#PCDATA)>
 <!ELEMENT nazwisko (#PCDATA)>
@@ -15,23 +16,23 @@
         <stopien>dr</stopien>
         <imie>Robert</imie>
         <nazwisko>Berezowski</nazwisko>
-        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
         <mail>robertB@serwer.pl</mail>
         <specjalizacja>xml?</specjalizacja>
     </osoba>
     <osoba id="2">
         <stopien>dr</stopien>
         <imie>Marek</imie>
-        <nazwisko>Popławski</nazwisko>
-        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <nazwisko>Pop&#x142;awski</nazwisko>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
         <mail>robertB@serwer.pl</mail>
         <specjalizacja>xml?</specjalizacja>
     </osoba>
     <osoba id="3">
         <stopien>dr</stopien>
         <imie>Adam</imie>
-        <nazwisko>Słowik</nazwisko>
-        <katedra>Katedra Inżynierii Komputerowej</katedra>
+        <nazwisko>S&#x142;owik</nazwisko>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
         <mail>robertB@serwer.pl</mail>
         <specjalizacja>xml?</specjalizacja>
     </osoba>
@@ -39,17 +40,137 @@
         <stopien>dr</stopien>
         <imie>Magdalena</imie>
         <nazwisko>Rajewska</nazwisko>
-        <katedra>Katedra Inżynierii Komputerowej</katedra>
-        <mail>robertB@serwer.pl</mail>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
+        <mail>magdalena.rajewska@tu.koszalin.pl</mail>
         <specjalizacja>xml?</specjalizacja>
     </osoba>
     <osoba id="5">
         <stopien>dr</stopien>
         <imie>Piotr</imie>
         <nazwisko>Ratuszniak</nazwisko>
-        <katedra>Katedra Inżynierii Komputerowej</katedra>
-        <mail>robertB@serwer.pl</mail>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
+        <mail>piotr.ratuszniak@ie.tu.koszalin.pl</mail>
+        <specjalizacja>bazy danych</specjalizacja>
+    </osoba>
+<osoba id="6">
+        <stopien>dr</stopien>
+        <imie>Natalia</imie>
+        <nazwisko>Maslennikowa</nazwisko>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
+        <mail>nataliya.maslennikova@tu.koszalin.pl.pl</mail>
+        <specjalizacja>Algorytmy i z&#x142;o&#x17C;ono&#x15B;&#x107; obliczeniowa</specjalizacja>
+    </osoba>
+    <osoba id="7">
+        <stopien>mgr.</stopien>
+        <imie>Dariusz</imie>
+        <nazwisko>Bernatowicz</nazwisko>
+        <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>
+        <mail>dariusz.bernatowicz@weii.tu.koszalin.pl</mail>
+        <specjalizacja>java3</specjalizacja>
+    </osoba>
+    <osoba id="8">
+        <stopien>prof.</stopien>
+        <imie>Krzysztof</imie>
+        <nazwisko>Wawryn</nazwisko>
+        <katedra>Katedra System&#xF3;w Cyfrowego Przetwarzania Sygna&#x142;&#xF3;w</katedra>
+        <mail> Krzysztof.Wawryn@tu.koszalin.pl</mail>
+        <specjalizacja>Uk&#x142;ady cyfrowe </specjalizacja>
+    </osoba>
+    <osoba id="9">
+        <stopien>dr</stopien>
+        <imie>Dariusz</imie>
+        <nazwisko>Gretkowski</nazwisko>
+        <katedra>Katedra System&#xF3;w Cyfrowego Przetwarzania Sygna&#x142;&#xF3;w</katedra>
+        <mail>dariusz.gretkowski@tu.koszalin.pl</mail>
+        <specjalizacja>Architektura komputer&#xF3;w</specjalizacja>
+    </osoba>
+    <osoba id="10">
+        <stopien>mgr.</stopien>
+        <imie>Marek</imie>
+        <nazwisko>Rubanowicz</nazwisko>
+        <katedra>Katedra System&#xF3;w Cyfrowego Przetwarzania Sygna&#x142;&#xF3;w</katedra>
+        <mail> marek.rubanowicz@tu.koszalin.pl</mail>
         <specjalizacja>xml?</specjalizacja>
+    </osoba>
+<osoba id="11">
+        <stopien>mgr.</stopien>
+        <imie>Patryk</imie>
+        <nazwisko>Widuli&#x144;ski</nazwisko>
+        <katedra>Katedra System&#xF3;w Cyfrowego Przetwarzania Sygna&#x142;&#xF3;w</katedra>
+        <mail>patryk.widulinski@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="12">
+        <stopien>prof.</stopien>
+        <imie>Zbigniew</imie>
+        <nazwisko>Banaszak</nazwisko>
+        <katedra>Katedra Podstaw Informatyki i Zarz&#x105;dzania</katedra>
+        <mail>zbigniew.banaszak@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="13">
+        <stopien>dr</stopien>
+        <imie>Grzegorz</imie>
+        <nazwisko>Bocewicz</nazwisko>
+        <katedra>Katedra Podstaw Informatyki i Zarz&#x105;dzania</katedra>
+        <mail>bocewicz@ie.tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="14">
+        <stopien>dr</stopien>
+        <imie>Krzysztof</imie>
+        <nazwisko>Bzdyra</nazwisko>
+        <katedra>Katedra Podstaw Informatyki i Zarz&#x105;dzania</katedra>
+        <mail> krzysztof.bzdyra@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="15">
+        <stopien>prof.</stopien>
+        <imie>Zbigniew</imie>
+        <nazwisko>Suszy&#x144;ski</nazwisko>
+        <katedra>Katedra System&#xF3;w Multimedialnych i Sztucznej Inteligencji</katedra>
+        <mail>zbigniew.suszynski@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+<osoba id="16">
+        <stopien>dr</stopien>
+        <imie>Grzegorz</imie>
+        <nazwisko>G&#xF3;rski</nazwisko>
+        <katedra>Katedra System&#xF3;w Multimedialnych i Sztucznej Inteligencji</katedra>
+        <mail>grzegorz.gorski@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="17">
+        <stopien>dr</stopien>
+        <imie>Robert</imie>
+        <nazwisko>&#x15A;wita</nazwisko>
+        <katedra>Katedra System&#xF3;w Multimedialnych i Sztucznej Inteligencji</katedra>
+        <mail> robert.swita@wp.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="18">
+        <stopien>mgr.</stopien>
+        <imie>Marcin</imie>
+        <nazwisko>Nowacki</nazwisko>
+        <katedra>Katedra System&#xF3;w Multimedialnych i Sztucznej Inteligencji</katedra>
+        <mail>marcin.nowacki@tu.koszalin.pl</mail>
+        <specjalizacja>IOS</specjalizacja>
+    </osoba>
+    <osoba id="19">
+        <stopien>dr</stopien>
+        <imie>Dariusz</imie>
+        <nazwisko>Jak&#xF3;bczak</nazwisko>
+        <katedra>Katedra Podstaw Informatyki i Zarz&#x105;dzania</katedra>
+        <mail> dariusz.jakobczak@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
+    </osoba>
+    <osoba id="20">
+        <stopien>dr</stopien>
+        <imie>Marcin</imie>
+        <nazwisko>Walczak</nazwisko>
+        <katedra>Katedra Elektroniki</katedra>
+        <mail>marcin.walczak@tu.koszalin.pl</mail>
+        <specjalizacja>???</specjalizacja>
     </osoba>
     
 </osoby>

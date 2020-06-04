@@ -26,12 +26,16 @@
       </ul>
 
       <form class="form-inline my-2 my-lg-0" name="navForm">
+        <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" onClick="setTwo()">1-9 </button>
         <button type="button" class="btn btn-secondary" onClick="setZero()">A-Z</button>
         <button type="button" class="btn btn-secondary" onClick="setOne()">Z-A</button>
+        </div>
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search"/>
         <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByLastName()" value="Search by lastname" />
         <p>:</p>
         <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByName()" value="Search by name"/>
+        <a class="nav-link" href="#dodawanie"><button type="button" href="#dodawanie" class="btn btn-outline-success my-2 my-sm-0" OnClick="Insert()">Dodaj nowy</button></a>
       </form>
     </div>
   </nav>
@@ -40,10 +44,10 @@
   </div>
   
   <div class="container" id="dodawanie">
-    <form name="form" id="form" action="/meta/xmlProject/php.php" method="GET"> Formularz dodawania
+    <form name="form" id="form" action="/meta/xmlProject/php.php" method="GET"> Formularz dodawania <a class="nav-link" href="#">^na górę^</a>
     <div class="form-group">
      <label for="exampleFormControlInput1">ID</label>
-    <input type="text" class="form-control" name="id" id="exampleFormControlInput1" />
+    <input type="text" class="form-control" name="id" id="id" readonly="true"/>
     <br/>
     <label for="exampleFormControlInput1">Imie</label>
     <input type="text" class="form-control" name="imie" id="exampleFormControlInput1" placeholder="Sauron"/>
@@ -69,13 +73,15 @@
     <label for="exampleFormControlTextarea2">Specjalizacja</label>
     <textarea class="form-control" id="exampleFormControlTextarea2" name="specjalizacja" rows="3"></textarea>
     <br/>
-    <input type="submit" name="akcja" value="Dodaj wykładowce" />
+    <input type="submit" name="akcja" value="Dodaj wykładowce" disabled="true" />
+    <br/>
+    
     
   </div>
 </form>
   </div>
    <script>
-              var sort = 0;
+              var sort = 2;
               function searchByLastName(){
               var name= document.getElementById("search").value
               var name2;
@@ -92,18 +98,28 @@
               if(include(name2,name)){
               var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
               var index = "<xsl:value-of select="@id" />"
-              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'<a class="nav-link" href="#dodawanie">'+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</a>'+'</li>';
               }
               </xsl:for-each>
               }
-              else{
+              if(sort==2){
+              <xsl:for-each select="osoby/osoba">
+              name2="<xsl:value-of select="nazwisko"/>";
+              if(include(name2,name)){
+              var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
+              var index = "<xsl:value-of select="@id" />"
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'<a class="nav-link" href="#dodawanie">'+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</a>'+'</li>';
+              }
+              </xsl:for-each>
+              }
+              if(sort==1){
                  <xsl:for-each select="osoby/osoba">
               <xsl:sort select="nazwisko" order="descending"/>
               name2="<xsl:value-of select="nazwisko"/>";
               if(include(name2,name)){
               var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
               var index = "<xsl:value-of select="@id" />"
-              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'<a class="nav-link" href="#dodawanie">'+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</a>'+'</li>';
               }
               </xsl:for-each>
               }
@@ -137,18 +153,28 @@
               if(include(name2,name)){
               var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
               var index = "<xsl:value-of select="@id" />"
-              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'<a class="nav-link" href="#dodawanie">'+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</a>'+'</li>';
               }
               </xsl:for-each>
               }
-              else{
-                 <xsl:for-each select="osoby/osoba">
-              <xsl:sort select="imie" order="descending"/>
+              if(sort==2){
+              <xsl:for-each select="osoby/osoba">
               name2="<xsl:value-of select="imie"/>";
               if(include(name2,name)){
               var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
               var index = "<xsl:value-of select="@id" />"
-              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'    '+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</li>';
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'<a class="nav-link" href="#dodawanie">'+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</a>'+'</li>';
+              }
+              </xsl:for-each>
+              }
+              if(sort==1){
+                 <xsl:for-each select="osoby/osoba">
+             <xsl:sort select="imie" order="descending"/>
+              name2="<xsl:value-of select="imie"/>";
+              if(include(name2,name)){
+              var data = "<xsl:value-of select="@id" />"+". "+"<xsl:value-of select="stopien" />"+" "+"<xsl:value-of select="imie" />"+" "+"<xsl:value-of select="nazwisko" />"+" "+"<xsl:value-of select="katedra" />"+" "+"<xsl:value-of select="mail"/>";
+              var index = "<xsl:value-of select="@id" />"
+              testhtml+= '<li class="list-group-item list-group-item-success">'+data+'<a class="nav-link" href="#dodawanie">'+'<button type="button" class="btn btn-outline-danger btn-sm" OnClick="Delete('+index+')">Usuń</button>'+' '+'<button type="button" class="btn btn-outline-warning btn-sm" OnClick="Update('+index+')">Modyfikuj</button>'+'</a>'+'</li>';
               }
               </xsl:for-each>
               }
@@ -158,7 +184,6 @@
               }
 
               function Update(id){
-              console.log(document.getElementsByName("form"))
               <xsl:for-each select="osoby/osoba">
               var index = "<xsl:value-of select="@id"/>"
               var stopien = "<xsl:value-of select="stopien"/>"
@@ -187,6 +212,7 @@
                 document.getElementsByName("form")[0][5].value="<xsl:value-of select="katedra"/>" 
                 document.getElementsByName("form")[0][6].value="<xsl:value-of select="specjalizacja"/>" 
                 document.getElementsByName("form")[0][7].value="Modyfikuj" 
+                document.getElementsByName("form")[0][7].disabled = false;
               }
                 </xsl:for-each>
              
@@ -200,6 +226,11 @@
               sort=0
               console.log(sort)
              }
+             function setTwo(){
+              sort=2
+              console.log(sort)
+             }
+             
              
              function Delete(id){
              console.log(document.getElementsByName("form"))
@@ -208,7 +239,6 @@
               var stopien = "<xsl:value-of select="stopien"/>"
               if(index==id){
                 document.getElementsByName("form")[0][0].value=id 
-                document.getElementsByName("form")[0][0].enable=false 
                 document.getElementsByName("form")[0][1].value="<xsl:value-of select="imie"/>"
                 document.getElementsByName("form")[0][2].value="<xsl:value-of select="nazwisko"/>"
                 document.getElementsByName("form")[0][3].value="<xsl:value-of select="mail"/>"
@@ -230,10 +260,52 @@
                 
                 document.getElementsByName("form")[0][5].value="<xsl:value-of select="katedra"/>" 
                 document.getElementsByName("form")[0][6].value="<xsl:value-of select="specjalizacja"/>" 
+                
                 document.getElementsByName("form")[0][7].value="Usuń" 
               }
                 </xsl:for-each>
-               document.getElementsByName("form")[0][0].ariaHidden=true
+               document.getElementsByName("form")[0][1].disabled = true;
+               document.getElementsByName("form")[0][2].disabled = true;
+               document.getElementsByName("form")[0][3].disabled = true;
+               document.getElementsByName("form")[0][4].disabled = true;
+               document.getElementsByName("form")[0][5].disabled = true;
+               document.getElementsByName("form")[0][6].disabled = true;
+               document.getElementsByName("form")[0][7].disabled = false;
+
+             }
+
+             function Insert(){
+             var index =null
+             var te = null
+             <xsl:for-each select="osoby/osoba">
+             index = "<xsl:value-of select="@id" />"
+             te = "<xsl:value-of select="@id" />"
+             </xsl:for-each>
+
+             <xsl:for-each select="osoby/osoba">
+              te="<xsl:value-of select="@id" />"
+              if(te >index){
+              index=te
+              }
+             </xsl:for-each>
+             index++
+                document.getElementsByName("form")[0][0].value=index 
+                document.getElementsByName("form")[0][1].value=""
+                document.getElementsByName("form")[0][2].value=""
+                document.getElementsByName("form")[0][3].value=""
+                document.getElementsByName("form")[0][4].selectedIndex=0
+                document.getElementsByName("form")[0][5].value="" 
+                document.getElementsByName("form")[0][6].value="" 
+                document.getElementsByName("form")[0][7].value="Dodaj wykładowce"
+                
+               document.getElementsByName("form")[0][1].disabled = false;
+               document.getElementsByName("form")[0][2].disabled = false;
+               document.getElementsByName("form")[0][3].disabled = false;
+               document.getElementsByName("form")[0][4].disabled = false;
+               document.getElementsByName("form")[0][5].disabled = false;
+               document.getElementsByName("form")[0][6].disabled = false;
+               document.getElementsByName("form")[0][7].disabled = false;
+
              }
              
               </script>

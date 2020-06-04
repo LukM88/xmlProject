@@ -31,20 +31,14 @@ foreach($osoby->osoba as $osoba1)
 
 $thedocument->removeChild($nodeToRemove);
 
-echo $doc->saveXML();
+
 file_put_contents('osoby.xml', $doc->saveXML());
 }
 else
 {
-    $nowaId=0;
-    foreach($osoby->osoba as $osoba1){
-      if ($osoba1['id']>=$nowaId ){
-            $nowaId++;
-        }
-    }
-    $nowaId=$nowaId;
+    
     $nowa=$osoby->addChild('osoba');
-    $nowa->addAttribute('id', $nowaId);
+    $nowa->addAttribute('id', $_GET['id']);
     $nowa->addChild('stopien',$_GET['stopien']);
     $nowa->addChild('imie',$_GET['imie']);
     $nowa->addChild('nazwisko',$_GET['nazwisko']);
