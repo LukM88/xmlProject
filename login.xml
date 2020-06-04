@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE osoby [
+<!ELEMENT osoby (osoba)+>
+<!ELEMENT osoba ( mail , haslo)>
+<!ELEMENT mail (#PCDATA)>
+<!ELEMENT haslo (#PCDATA)>
+<!ATTLIST osoba id CDATA #REQUIRED>
+]>
+<osoby>
+    <osoba id="01">
+        <mail>dinoluk@wp.pl</mail>
+        <haslo>admin</haslo>
+    </osoba>
+    
+    
+</osoby>

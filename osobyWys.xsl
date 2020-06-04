@@ -32,9 +32,9 @@
         <button type="button" class="btn btn-secondary" onClick="setOne()">Z-A</button>
         </div>
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search"/>
-        <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByLastName()" value="Search by lastname" />
+        <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByLastName()" value="Szukaj po nazwisku" />
         <p>:</p>
-        <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByName()" value="Search by name"/>
+        <input class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="searchByName()" value="Szukaj po imieniu"/>
         <a class="nav-link" href="#dodawanie"><button type="button" href="#dodawanie" class="btn btn-outline-success my-2 my-sm-0" OnClick="Insert()">Dodaj nowy</button></a>
       </form>
     </div>
