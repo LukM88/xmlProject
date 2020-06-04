@@ -21,7 +21,7 @@
         <specjalizacja>xml?</specjalizacja>
     </osoba>
     <osoba id="02">
-        <stopien>dr</stopien>
+        <stopien>dr hab.</stopien>
         <imie>Marek</imie>
         <nazwisko>Pop&#x142;awski</nazwisko>
         <katedra>Katedra In&#x17C;ynierii Komputerowej</katedra>

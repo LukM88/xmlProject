@@ -7,16 +7,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-resource.js"></script>
                 </head>
-                <body>
-  <div class="container" id="dodawanie">
+                <body class="p-3 mb-2 bg-secondary text-white">
+                    <h1><center>Logowanie do aplikacji</center></h1>
+  <div class="container p-3 mb-2 bg-primary text-white" id="dodawanie" >
     <form name="logForm" id="logForm" action="/meta/xmlProject/login.php" method="GET"> Formularz logowania
     <div class="form-group">
     
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" name="mail" class="form-control" id="mail" placeholder="name@example.com"/>
+    <input type="email" name="mail" class="form-control" id="mail" placeholder="email@serwer.com"/>
     <br/>
     <label for="exampleFormControlInput1">Hasło</label>
-    <input type="text" name="haslo" class="form-control" id="haslo" placeholder="hasło"/>
+    <input type="password" name="haslo" class="form-control" id="haslo" placeholder="hasło"/>
     <br/>
     
     <input type="submit" name="akcja" value="loguj" />
